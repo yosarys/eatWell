@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import CardList from "../RandomList";
+import { fetcheatWell } from "../../api";
+
+
 import { StyleSheet, View} from "react-native";
 
 
@@ -18,7 +22,7 @@ const [recetas, setrecetas] = useState({});
   return (
       
       <View>
-          <Text>Bienvenido a EatWell</Text>
+          <>{recetas.meals ? <CardList randomR={recetas}/> : null}</>
       </View>
 
   );
