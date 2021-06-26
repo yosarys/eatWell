@@ -28,5 +28,4 @@ const [recetas, setrecetas] = useState({});
 };
 
 const styles = StyleSheet.create({});
-
 export default Home;
