@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View} from "react-native";
-import CardList from "../RandomList";
+import CardList from "../Map";
 import { fetcheatWell } from "../../api";
 import Header from "../Header";
 
-const Home = () => {
+export const HomeScreen = () => {
 const [recetas, setrecetas] = useState({});
 
   const getrecetas = async () => {
@@ -30,4 +30,3 @@ const [recetas, setrecetas] = useState({});
 };
 
 const styles = StyleSheet.create({});
-export default Home;
