@@ -5,9 +5,9 @@ import MyTabs from './src/components/BarNavegation';
 
 export default function App() {
   return (
-        <NavigationContainer>
-        <MyTabs/>
-      </NavigationContainer>
+    <NavigationContainer>
+    <MyTabs/>
+  </NavigationContainer>
   );
 }
 
