@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import Card from "./InfoPantallas";
+import {Card} from './InfoPantallas';
 
-const CardList = ({ randomR }) => {
+export const CardList = ({ randomR }) => {
   return (
     <View style={styles.container}>
       {randomR.meals.map((randomInfo, index) => (
@@ -23,4 +23,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CardList;
