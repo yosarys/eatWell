@@ -1,10 +1,32 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, View, SafeAreaView} from "react-native";
+import { ListaCategorias } from "../../api";
+import { Category } from "../Map";
 
-export const CategoriaScreen=()=>{
+export const CategoriaScreen = ({navigation}) => {
+const [secciones, setsecciones] = useState({});
+
+  const getsecciones = async () => {
+    const response = await ListaCategorias();
+
+    setsecciones(response);
+  };
+
+  useEffect(() => {
+    getsecciones();
+  }, []);
+
   return (
-    <View>
-      <Text>Categori!</Text>
-    </View>
+    <SafeAreaView>
+    <ScrollView>
+      <View>
+        <>{secciones.categories ? <Category cate={secciones} navigation={navigation} /> : null}</>
+      </View>
+    </ScrollView>
+    </SafeAreaView>
   );
-}
+
+};
+
+const styles = StyleSheet.create({});
+
