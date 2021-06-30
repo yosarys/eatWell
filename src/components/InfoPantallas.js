@@ -1,18 +1,19 @@
 import React from "react";
-import {Image, StyleSheet, Text, View } from "react-native";
+import {Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
-const Card = ({ randomInfo}) => {
+export const Card = ({ randomInfo}) => {
 
   return (
-      <View style={styles.container}>
-      <Text style={styles.title}>{randomInfo.strMeal}</Text>
-      <Text>{'\n'}Instrucciones {'\n'}{randomInfo.strInstructions}{'\n'}{'\n'}</Text>
-      <Text>Categoria {'\n'}{randomInfo.strCategory}{'\n'}{'\n'}</Text>
-      <Text>Area {'\n'}{randomInfo.strArea}</Text>
-      <View style={styles.image}>
-        <Image style={styles.image} source={{ uri: randomInfo.strMealThumb }} />
-      </View>
-    </View>
+    <ScrollView style={styles.container}>
+    <Text style={styles.title}>{randomInfo.strMeal}</Text>
+    <Image style={styles.image} source={{ uri: randomInfo.strMealThumb }} />
+    <Text>Instrucciones:</Text>
+    <Text>{randomInfo.strInstructions}</Text>
+    <Text>Categoria:</Text>
+    <Text>{randomInfo.strCategory}</Text>
+    <Text>Area:</Text>
+    <Text>{randomInfo.strArea}</Text>
+    </ScrollView>
   );
 };
 
@@ -34,5 +35,3 @@ const styles = StyleSheet.create({
     height: 300,
   }
 });
-
-export default Card;
