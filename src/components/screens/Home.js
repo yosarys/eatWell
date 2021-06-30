@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View} from "react-native";
-import CardList from "../Map";
+import {CardList} from '../Map';
 import { fetcheatWell } from "../../api";
 import Header from "../Header";
 
