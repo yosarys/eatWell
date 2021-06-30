@@ -8,7 +8,7 @@ const Header = () => {
     <Appbar.Header style={styles.header}> 
       <StatusBar></StatusBar>
        <Image
-        style={{ width: 115, height: 115, marginLeft:115}}
+       style={{ width: 115, height: 115, marginLeft:180, marginTop:-20}}
         source={require('../../assets/AppEatWell.png')} />
     </Appbar.Header>
   );
