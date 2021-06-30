@@ -29,6 +29,15 @@ return (
     </ScrollView>
   )};
 
+  //PANTALLA AREAS
+export const Regiones = (regionesInfo) => {
+
+  return (
+  <ScrollView>
+        <Text>{regionesInfo.strMeal}</Text>
+        <Image style={styles.image} source={{uri: regionesInfo.strMealThumb}}/>  
+  </ScrollView>
+    )};
   
   const styles = StyleSheet.create({
     container: {
