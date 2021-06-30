@@ -3,7 +3,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { HomeScreen} from '../screens/Home';
 import {CategoriaScreen} from '../screens/Categories';
-import { RegionScreen } from '../screens/Region';
+import { RegionScreen } from '../screens/RegionLista';
+import { RegionResult } from './Stack';
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -37,6 +38,8 @@ const  MyTabs =() =>{
       <Tab.Screen
         name="International"
         component={RegionScreen}
+        name="Regiones"
+        component={RegionResult}
         options={{
           tabBarLabel: 'Internacional',
           tabBarIcon: ({ color }) => (
