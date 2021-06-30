@@ -1,16 +1,21 @@
 import * as React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { HomeScreen } from './screens/Home';
-import {CategoriaScreen} from './screens/Categories';
-import { RegionScreen } from './screens/Region';
+import { HomeScreen} from '../screens/Home';
+import {CategoriaScreen} from '../screens/Categories';
+import { RegionScreen } from '../screens/Region';
 
 
 const Tab = createMaterialBottomTabNavigator();
 
 const  MyTabs =() =>{
   return (
-    <Tab.Navigator>
+  <Tab.Navigator
+       initialRouteName="Home"
+       activeColor="#fdfefe"
+       inactiveColor="#bdc3c7"
+       barStyle={{ backgroundColor: '#ff5722' }}
+       >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
