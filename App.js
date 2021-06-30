@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
-import MyTabs from './src/components/BarNavegation';
+import MyTabs from './src/components/navegation/BarNavegation';
 
 
 export default function App() {
