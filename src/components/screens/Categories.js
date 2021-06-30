@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, View, SafeAreaView} from "react-native";
 import { ListaCategorias } from "../../api";
 import { Category } from "../Map";
 
-export const CategoriaScreen = ({navigation}) => {
+export const CategoriaScreen = () => {
 const [secciones, setsecciones] = useState({});
 
   const getsecciones = async () => {
@@ -19,9 +19,7 @@ const [secciones, setsecciones] = useState({});
   return (
     <SafeAreaView>
     <ScrollView>
-      <View>
-        <>{secciones.categories ? <Category cate={secciones} navigation={navigation} /> : null}</>
-      </View>
+        <>{secciones.categories ? <Category cate={secciones}/> : null}</>
     </ScrollView>
     </SafeAreaView>
   );
