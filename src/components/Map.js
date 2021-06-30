@@ -1,8 +1,10 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import {Card} from './InfoPantallas';
+import { StyleSheet, View } from "react-native";
+import { Card } from "./InfoPantallas";
+import { CateRecetas } from "./InfoPantallas";
 
-export const CardList = ({ randomR }) => {
+//RECETAS RANDOM
+export const CardList = ({randomR}) => {
   return (
     <View style={styles.container}>
       {randomR.meals.map((randomInfo, index) => (
@@ -11,6 +13,19 @@ export const CardList = ({ randomR }) => {
     </View>  
   );
 };
+
+
+//CATEGORIAS DE RECETAS
+export const Category = ({cate}) => {
+  return (
+    <View style={styles.container}>
+      {cate.categories.map((categoriaInfo, index) => (
+        <CateRecetas key={index} categoriaInfo={categoriaInfo} />
+      ))}
+    </View>  
+  );
+};
+
 
 const styles = StyleSheet.create({
   container: {
@@ -22,4 +37,3 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
-
