@@ -26,6 +26,16 @@ export const Category = ({cate}) => {
   );
 };
 
+//RECETAS AREAS
+export const RegionR = ({area}) => {
+  return (
+    <View style={styles.container}>
+      {area.meals.map((regionesInfo, index) => (
+        <Regiones key={index} regionesInfo={regionesInfo} />
+      ))}
+    </View>  
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
