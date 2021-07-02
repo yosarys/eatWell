@@ -38,7 +38,7 @@ export const ListaCategorias = async() => {
 //Filtrado areas
 export const FilterArea = async() => {
   try{
-  const endpoint = FilterAUrl;
+    const endpoint = `${FilterAUrl}${reg}`;
 
   // Realizar la petición a la API. Esta petición debe ser asíncrona.
   const response = await fetch(endpoint);
@@ -50,3 +50,10 @@ export const FilterArea = async() => {
   return { count: 0 };
   }
 };
+
+//Definicion de Variable para Filtrado de Areas
+let reg;  
+
+export const elergirReg = ({FiltroRegion}) => {
+  reg = FiltroRegion;
+}
