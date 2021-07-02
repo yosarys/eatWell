@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, Image} from "react-native";
+import { elergirReg } from "../../api";
+
 
 const DATA = [
   {
@@ -16,9 +18,9 @@ const DATA = [
   },
   {
     id: "3",
-    title: "Japonesa",
-    img: "https://www.muyjapones.com/wp-content/uploads/2019/07/La-bandera-japonesa-1.jpg",
-    regionData: "Japanese",
+    title: "China",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Zeng_Liansong%27s_proposal_for_the_PRC_flag.svg/220px-Zeng_Liansong%27s_proposal_for_the_PRC_flag.svg.png",
+    regionData: "Chinese",
   },
   {
     id:"4",
@@ -31,6 +33,36 @@ const DATA = [
     title:"Francia",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/200px-Flag_of_France.svg.png",
     regionData: "French",
+  },
+  {
+    id:"6",
+    title:"Italiana",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png",
+    regionData: "Italian",
+  },
+  {
+    id:"7",
+    title:"Turquia",
+    img: "https://i.pinimg.com/originals/db/a5/73/dba5739fd56d744a822f490ff915d2eb.png",
+    regionData: "Turkish",
+  },
+  {
+    id:"8",
+    title:"España",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png",
+    regionData: "Spanish",
+  },
+  {
+    id:"9",
+    title:"Portugal",
+    img: "https://www.lifeder.com/wp-content/uploads/2019/11/PortugalActual.png",
+    regionData: "Portuguese",
+  },
+  {
+    id:"10",
+    title:"Mexicana",
+    img: "https://www.adverthia.com/wp-content/uploads/2020/02/Bandera-de-Me%CC%81xico.png",
+    regionData: "Mexican"
   },
 ];
 
@@ -51,7 +83,7 @@ export const Areas = ({navigation}) => {
     return (
       <Item
         item={item}
-        onPress={() => {navigation.navigate("RegionLista")}}
+        onPress={() => {navigation.navigate("RegionLista",elergirReg({FiltroRegion:item.regionData}))}}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
