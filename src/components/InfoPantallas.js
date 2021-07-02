@@ -30,7 +30,7 @@ return (
   )};
 
   //PANTALLA AREAS
-export const Regiones = (regionesInfo) => {
+export const Regiones = ({regionesInfo}) => {
 
   return (
   <ScrollView>
