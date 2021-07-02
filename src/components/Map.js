@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View,Text} from "react-native";
 import { Card } from "./InfoPantallas";
 import { CateRecetas } from "./InfoPantallas";
+import { Regiones } from "./InfoPantallas";
+
 
 //RECETAS RANDOM
 export const CardList = ({randomR}) => {
@@ -29,7 +31,8 @@ export const Category = ({cate}) => {
 //RECETAS AREAS
 export const RegionR = ({area}) => {
   return (
-    <View style={styles.container}>
+    <View>
+       <Text style={styles.title}>Recetas</Text>
       {area.meals.map((regionesInfo, index) => (
         <Regiones key={index} regionesInfo={regionesInfo} />
       ))}
