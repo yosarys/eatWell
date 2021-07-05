@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View, SafeAreaView} from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView} from "react-native";
 import { RegionR} from '../Map';
 import { FilterArea} from '../../api';
 

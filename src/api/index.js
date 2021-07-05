@@ -1,7 +1,7 @@
 import getEnvVars from "../../environment";
 
 // Rutas de la API
-const {RandomUrl,CategoriaUrl,FilterAUrl} = getEnvVars();
+const {RandomUrl,CategoriaUrl,FilterAUrl,FilterNameUrl} = getEnvVars();
 
 //Recetas Random
 export const fetcheatWell = async() => {
@@ -51,9 +51,29 @@ export const FilterArea = async() => {
   }
 };
 
+//Busqueda de recetas
+export const BuscarRecetas = async () => {
+  try {
+    const endpoint = `${FilterNameUrl}${buscar}`;
+    const response = await fetch(endpoint);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //Definicion de Variable para Filtrado de Areas
 let reg;  
 
 export const elergirReg = ({FiltroRegion}) => {
   reg = FiltroRegion;
 }
+
+//FILTRO BUSQUEDA
+let buscar;  
+export const buscarNombre= ({FiltroBuscar}) => {
+  buscar = FiltroBuscar;
+}
+

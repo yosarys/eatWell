@@ -5,6 +5,8 @@ import { HomeScreen} from '../screens/Home';
 import {CategoriaScreen} from '../screens/Categories';
 import { RegionScreen } from '../screens/RegionLista';
 import { RegionResult } from './Stack';
+import theme from '../../theme';
+import { BusquedaResult } from './Stack';
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -15,11 +17,13 @@ const  MyTabs =() =>{
        initialRouteName="Home"
        activeColor="#fdfefe"
        inactiveColor="#bdc3c7"
-       barStyle={{ backgroundColor: '#ff5722' }}
+       barStyle={{ backgroundColor: theme.colors.orange }}
        >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
+        name="BusquedaResult"
+        component={BusquedaResult}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (

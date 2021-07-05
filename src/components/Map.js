@@ -1,9 +1,8 @@
 import React from "react";
 import { StyleSheet, View,Text} from "react-native";
 import { Card } from "./InfoPantallas";
-import { CateRecetas } from "./InfoPantallas";
 import { Regiones } from "./InfoPantallas";
-
+import theme from "../theme";
 
 //RECETAS RANDOM
 export const CardList = ({randomR}) => {
@@ -11,18 +10,6 @@ export const CardList = ({randomR}) => {
     <View style={styles.container}>
       {randomR.meals.map((randomInfo, index) => (
         <Card key={index} randomInfo={randomInfo} />
-      ))}
-    </View>  
-  );
-};
-
-
-//CATEGORIAS DE RECETAS
-export const Category = ({cate}) => {
-  return (
-    <View style={styles.container}>
-      {cate.categories.map((categoriaInfo, index) => (
-        <CateRecetas key={index} categoriaInfo={categoriaInfo} />
       ))}
     </View>  
   );
@@ -41,12 +28,15 @@ export const RegionR = ({area}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: 10,
-    marginRight: 10,
-  },
-});
+  title: {
+    fontSize: 30,
+    textAlign: "center",
+    fontWeight: "bold", 
+    paddingVertical: 8,
+    marginVertical:20,
+    borderWidth: 3,
+    borderColor: theme.colors.grey,
+    backgroundColor: theme.colors.white,
+    color: theme.colors.black,
+  }
+})

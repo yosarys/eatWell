@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { Image,StyleSheet,StatusBar} from 'react-native';
+import theme from '../theme';
 
 const Header = () => {
 
@@ -16,7 +17,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: '#ff5722',
+    backgroundColor: theme.colors.orange,
   },
 })
 

@@ -3,8 +3,9 @@ import { ScrollView, StyleSheet, View} from "react-native";
 import {CardList} from '../Map';
 import { fetcheatWell } from "../../api";
 import Header from "../Header";
+import SearchRecetas from "../SearchRecetas";
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
 const [recetas, setrecetas] = useState({});
 
   const getrecetas = async () => {
@@ -21,6 +22,7 @@ const [recetas, setrecetas] = useState({});
     <ScrollView>
       <Header/>
       <View>
+          <SearchRecetas navigation={navigation}/>
           <>{recetas.meals ? <CardList randomR={recetas}/> : null}</>
       </View>
       </ScrollView>

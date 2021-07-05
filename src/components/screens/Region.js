@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, Image} from "react-native";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, Image,View} from "react-native";
 import { elergirReg } from "../../api";
-
+import theme from "../../theme";
+import Header from "../../components/Header";
 
 const DATA = [
   {
@@ -68,8 +69,10 @@ const DATA = [
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <View style= {{flex:1, flexDirection: 'row'}}>
     <Image style ={styles.img} source = {{uri:`${item.img}`}} />
     <Text style={[styles.title, textColor]}>{item.title}</Text>
+    </View>
   </TouchableOpacity>
 );
 
@@ -77,7 +80,7 @@ export const Areas = ({navigation}) => {
   const [selectedId] = useState();
 
   const renderItem = ({ item}) => {
-    const backgroundColor = item.id === selectedId ? "#bdc3c7" : "#bdc3c7";
+    const backgroundColor = item.id === selectedId ? "#fdfefe" : "#fdfefe";
     const color = item.id === selectedId ? 'white' : 'black';
 
     return (
@@ -91,7 +94,8 @@ export const Areas = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
+      <Header/>
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -109,15 +113,23 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    marginVertical: 3,
+    marginHorizontal: 8,
+    margin: 10,
+    marginTop: 16,
+    paddingVertical: 8,
+    borderWidth: 2, 
+    borderColor: theme.colors.orangeR,
+    borderRadius: 9,
   },
   title: {
     fontSize: 30,
+    margin: 35,
+    fontWeight: "bold",
   },
   img:{
-      width: 110,
-     height: 90, 
-     borderRadius:10
+      width: 180,
+     height: 120, 
+     borderRadius:7
   }
 });
