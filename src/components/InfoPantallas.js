@@ -1,35 +1,39 @@
 import React from "react";
-import {Image, StyleSheet, Text, View, ScrollView } from "react-native";
+import {Image, StyleSheet, Text, ScrollView,Button,Linking} from "react-native";
 import theme from "../theme";
 
-//PANTALLA HOME
 export const Card = ({ randomInfo}) => {
 
   return (
-      <ScrollView style={styles.containerHome}>
+    <ScrollView style={styles.containerHome}>
       <Text style={styles.titleH}>{randomInfo.strMeal}</Text>
       <Image style={styles.imageHome} source={{ uri: randomInfo.strMealThumb }} />
+      <Text style ={styles.line}></Text>
       <Text style={styles.subtitleHome}>Instrucciones:</Text>
       <Text style={styles.textHome}>{randomInfo.strInstructions}{"\n"}</Text>
+      <Text style ={styles.line}></Text>
       <Text style={styles.subtitleHome}>Categoria:</Text>
-      <Text styles={styles.textHome}>{randomInfo.strCategory}</Text>
-      <Text styles={styles.subtitleHome}>Area:</Text>
+      <Text style={styles.textHome}>{randomInfo.strCategory}</Text>
+      <Text style ={styles.line}></Text>
+      <Text style={styles.subtitleHome}>Area:</Text>
       <Text style={styles.textHome}>{randomInfo.strArea}</Text>
+      <Text style ={styles.line}></Text>
+      <Button
+        title="Ver Procedimiento"
+        color= "#ff5722"
+        onPress={() => Linking.openURL(randomInfo.strYoutube)}/>
     </ScrollView>
   );
 };
 
-
-//PANTALLA CATEGORIAS
 export const CateRecetas = ({titulo,imagen}) => {
 return (
     <ScrollView style= {styles.conteinerCat}>
-      <Text>{titulo}</Text>
+      <Text style={styles.titleC}>{titulo}</Text>
       <Image style={styles.imageCategoria} source={{ uri: `${imagen}`}} />
     </ScrollView>
   )};
 
-  //PANTALLA AREAS
 export const Regiones = ({regionesInfo}) => {
 
   return (
@@ -40,39 +44,44 @@ export const Regiones = ({regionesInfo}) => {
     )};
   
   const styles = StyleSheet.create({
-    //ESTILO PANTALLA HOME
     containerHome: {
       padding: 20,
-      margin: 4,
-      borderColor:  theme.colors.orangeR,
+      margin: 25,
+      borderRadius:10,
+      borderColor:  theme.colors.grey,
       borderWidth: 2, 
       backgroundColor: theme.colors.white,
+      opacity:0.9,
      },
     titleH: {
      fontSize: 30,
      fontWeight: "bold", 
      alignSelf: "center",
+     fontStyle: "italic",
     },
     textHome:{
-      fontSize: 15,
+      fontSize: 17,
       textAlign: "justify"
     },
     subtitleHome:{
       fontSize: 20,
       fontWeight: 'bold',
+      fontStyle: "italic",
     },
     imageHome: {
-     width: 400,
-     height: 280,
-     margin:10,
+     width: '100%',
+     height: 300,
+     margin:2,
      resizeMode: "center",
      borderRadius:20,
      },
-    //ESTILO PANTALLA CATEGORIAS
+     line:{
+      borderBottomColor: theme.colors.grey,
+      borderBottomWidth: 1,
+     },
    conteinerCat:{
     flex:1,
     padding: 15,
-    margin: 5,
     marginHorizontal:5,
     marginVertical:5,
     backgroundColor: theme.colors.white,
@@ -87,16 +96,11 @@ export const Regiones = ({regionesInfo}) => {
    alignSelf: "center",
    color: theme.colors.orange
  },
- textCategoria:{
-   fontSize: 15,
-   textAlign: "justify"
- },
   imageCategoria: {
    width: "100%",
    height: 90,
    resizeMode: "center",
    },
-  //ESTILO PANTALLA REGIONES
   conteinerReg:{
    flex:1,
    marginHorizontal:15,

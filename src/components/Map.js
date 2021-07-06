@@ -1,21 +1,19 @@
 import React from "react";
-import { StyleSheet, View,Text} from "react-native";
+import { StyleSheet, View,Text,ScrollView} from "react-native";
 import { Card } from "./InfoPantallas";
 import { Regiones } from "./InfoPantallas";
 import theme from "../theme";
 
-//RECETAS RANDOM
 export const CardList = ({randomR}) => {
   return (
-    <View style={styles.container}>
+    <ScrollView>
       {randomR.meals.map((randomInfo, index) => (
         <Card key={index} randomInfo={randomInfo} />
       ))}
-    </View>  
+    </ScrollView>
   );
 };
 
-//RECETAS AREAS
 export const RegionR = ({area}) => {
   return (
     <View>
@@ -32,11 +30,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     fontWeight: "bold", 
+    fontStyle: "italic",
     paddingVertical: 8,
     marginVertical:20,
     borderWidth: 3,
+    margin:15,
     borderColor: theme.colors.grey,
     backgroundColor: theme.colors.white,
-    color: theme.colors.black,
+    color: theme.colors.green,
   }
 })

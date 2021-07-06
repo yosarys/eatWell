@@ -8,17 +8,22 @@ import { RegionResult } from './Stack';
 import theme from '../../theme';
 import { BusquedaResult } from './Stack';
 
-
+/*
+  https://reactnavigation.org/docs/material-bottom-tab-navigator/
+  Se implemento el Botton Tab para un manejo más facil y dinamico para el uso de la app.
+*/
 const Tab = createMaterialBottomTabNavigator();
 
 const  MyTabs =() =>{
   return (
+    //Cambio de color de la barra, y de iconos al momento de ser presionados.
+    //Definicion de pantallas que estaran contenidas dentro de otra.
   <Tab.Navigator
        initialRouteName="Home"
        activeColor="#fdfefe"
        inactiveColor="#bdc3c7"
        barStyle={{ backgroundColor: theme.colors.orange }}
-       >
+       >     
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -34,7 +39,7 @@ const  MyTabs =() =>{
         name="Category"
         component={CategoriaScreen}
         options={{
-          tabBarLabel: 'Categorias',
+        tabBarLabel: 'Categorias',
           tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="animation-outline" color={color} size={26} />),
         }}

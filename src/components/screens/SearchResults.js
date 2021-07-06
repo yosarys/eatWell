@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { ActivityIndicator, Title } from "react-native-paper";
+import { StyleSheet, View,ImageBackground } from "react-native";
 import { BuscarRecetas} from "../../api";
 import Header from "../Header";
 import SearchData from "../SearchList";
@@ -8,7 +7,6 @@ import SearchData from "../SearchList";
 const SearchResults =() => {
 
   const [recetas, setrecetas] = useState(null);
-  const [error, setError] = useState("");
 
   const getrecetas = async () => {
     let result;
@@ -23,11 +21,11 @@ const SearchResults =() => {
   }, []);
 
   return (
-   <View>
+   <View style={{flex: 1,flexDirection: "column"}}>
       <Header/>
-      {recetas && error ? <ActivityIndicator size="large" /> : null}
-      <>{recetas ? <SearchData Resultados={recetas}/> : null}</>
-      {error ? <Title>{error}</Title> : null}  
+      <ImageBackground source= {require('../../../assets/fondo.jpg')} style={{flex: 1}}>
+        <>{recetas ? <SearchData Resultados={recetas}/> : null}</>
+      </ImageBackground>
    </View>
   );
 };

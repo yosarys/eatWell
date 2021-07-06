@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList} from 'react-native';
-import {CardSearch} from '../components/CardResultado';
+import CardSearch from '../components/CardResultado';
 
 const SearchData = ({Resultados}) => {
     return ( 
@@ -15,6 +15,7 @@ const SearchData = ({Resultados}) => {
                     instrucciones={item.strInstructions}
                     categoria={item.strCategory}
                     area={item.strArea}
+                    video={item.strYoutube}
                />
             )
         }}

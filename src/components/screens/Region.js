@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, Image,View} from "react-native";
+import { FlatList, SafeAreaView,ImageBackground, StyleSheet, Text, TouchableOpacity, Image,View} from "react-native";
 import { elergirReg } from "../../api";
 import theme from "../../theme";
 import Header from "../../components/Header";
 
+
+/* https://reactnative.dev/docs/flatlist
+  Se implemento FlatList para poder navegar a una nueva pantalla de una manera más renderizada*/
+
+
+// Se utilizo la variable DATA, para los datos a primera vista de la pantalla en en Button Tan de "Internacional"
 const DATA = [
   {
     id: "1",
@@ -67,6 +73,7 @@ const DATA = [
   },
 ];
 
+//Se utilizo TouchableOpacity para darle el funcionamiento a un button, llamanado la funcion img de DATA para hacer el flitrado de datos
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
     <View style= {{flex:1, flexDirection: 'row'}}>
@@ -76,6 +83,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
+//Se uso la navegación para obtener los datos de nuestra funcion de Filtrado de región, para mostrar los datos de acuerdo a la categoria.
 export const Areas = ({navigation}) => {
   const [selectedId] = useState();
 
@@ -93,24 +101,23 @@ export const Areas = ({navigation}) => {
     );
   };
 
+  //Se codifico con ImageBackground el fondo de de FlatList en la pantalla de Region.
   return (
-    <SafeAreaView>
-      <Header/>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        extraData={selectedId}
-      />
+    <SafeAreaView style={{flex: 1,flexDirection: "column"}}>
+         <ImageBackground source= {require('../../../assets/fondo3.jpg')} style={{flex: 1,resizeMode: "cover",justifyContent: "center"}}>
+          <Header/>
+           <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            extraData={selectedId}
+             />
+        </ImageBackground>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
   item: {
     padding: 20,
     marginVertical: 3,
@@ -119,13 +126,17 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingVertical: 8,
     borderWidth: 2, 
-    borderColor: theme.colors.orangeR,
+    borderColor: theme.colors.grey,
     borderRadius: 9,
   },
   title: {
     fontSize: 30,
     margin: 35,
     fontWeight: "bold",
+  },
+  text:{
+    fontSize:20,
+    margin:15,
   },
   img:{
       width: 180,

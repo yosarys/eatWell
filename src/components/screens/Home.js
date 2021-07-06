@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View} from "react-native";
+import { StyleSheet,View,ImageBackground} from "react-native";
 import {CardList} from '../Map';
 import { fetcheatWell } from "../../api";
 import Header from "../Header";
@@ -19,14 +19,13 @@ const [recetas, setrecetas] = useState({});
   }, []);
 
   return (
-    <ScrollView>
+    <View style={{flex: 1,flexDirection: "column"}}>
       <Header/>
-      <View>
+      <ImageBackground source= {require('../../../assets/fondo.jpg')} style={{flex: 1}}>
           <SearchRecetas navigation={navigation}/>
           <>{recetas.meals ? <CardList randomR={recetas}/> : null}</>
-      </View>
-      </ScrollView>
-
+      </ImageBackground>  
+    </View>
   );
 
 };

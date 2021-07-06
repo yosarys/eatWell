@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, SafeAreaView} from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView,ImageBackground} from "react-native";
 import { RegionR} from '../Map';
 import { FilterArea} from '../../api';
 
@@ -19,7 +19,9 @@ const [region, setregiones] = useState();
   return (
     <SafeAreaView>
     <ScrollView>
-    <>{region ? <RegionR area={region} navigation={navigation} /> : null}</>
+      <ImageBackground source= {require('../../../assets/fondo3.jpg')} style={{flex: 1}}>
+        <>{region ? <RegionR area={region} navigation={navigation} /> : null}</>
+       </ImageBackground>
     </ScrollView>
     </SafeAreaView>
   );
