@@ -21,12 +21,11 @@ export const Card = ({ randomInfo}) => {
 
 
 //PANTALLA CATEGORIAS
-export const CateRecetas = ({categoriaInfo}) => {
+export const CateRecetas = ({titulo,imagen}) => {
 return (
-    <ScrollView >
-      <Text>{categoriaInfo.strCategory}</Text>
-      <Text>{categoriaInfo.strCategoryDescription}</Text>
-      <Image style={styles.imageCategoria} source={{ uri: categoriaInfo.strCategoryThumb }} />
+    <ScrollView style= {styles.conteinerCat}>
+      <Text>{titulo}</Text>
+      <Image style={styles.imageCategoria} source={{ uri: `${imagen}`}} />
     </ScrollView>
   )};
 

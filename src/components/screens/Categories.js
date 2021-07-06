@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View, SafeAreaView} from "react-native";
+import {StyleSheet,ImageBackground,SafeAreaView} from "react-native";
 import { ListaCategorias } from "../../api";
-import { Category } from "../Map";
+import Header from "../Header";
+import CategoryData from "../CategoriaList";
 
 export const CategoriaScreen = () => {
 const [secciones, setsecciones] = useState({});
@@ -17,10 +18,11 @@ const [secciones, setsecciones] = useState({});
   }, []);
 
   return (
-    <SafeAreaView>
-    <ScrollView>
-        <>{secciones.categories ? <Category cate={secciones}/> : null}</>
-    </ScrollView>
+    <SafeAreaView style={{flex: 1,flexDirection: "column"}}>
+      <Header/>
+    <ImageBackground source= {require('../../../assets/fondo2.jpg')} style={{flex: 1,resizeMode: "cover",justifyContent: "center"}}>
+        <>{secciones.categories ? <CategoryData ListaCategoria={secciones}/> : null}</>
+      </ImageBackground>
     </SafeAreaView>
   );
 
